@@ -1,6 +1,6 @@
 from flask import Flask
 
-# Initializing applicatio
+# Initializing application
 app = Flask(__name__)
 
-from app import views
+from app import views # Allows us to create views
