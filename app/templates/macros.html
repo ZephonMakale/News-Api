@@ -1,0 +1,13 @@
+{% macro displaySourcesList(sources_list) %}
+
+    {% for sources in sources_list %}
+        <li>{{ sources.id }}</li>
+        <li>{{ sources.name }}</li>
+        <li>{{ sources.description }}</li>
+        <li>{{ sources.category }}</li>
+        <li><a href="{{ sources.url}}">url</a></li>
+        <li>{{sources.language}}</li>  
+        <li>{{sources.country}}</li>
+        <img src="{{sources.image}}"/>
+    {% endfor %}
+{% endmacro %}
