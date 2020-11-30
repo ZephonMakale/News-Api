@@ -26,20 +26,11 @@
     
     <!-- Content block-->
     {% block content %}
-    <!--Popular Articles-->
-    <h3>Technology News</h3>
-    <ul>
-        {{ macro.displaySourcesList(technology)}}
-    </ul>
-    <h3>Business News</h3>
-    <ul>
-        {{ macro.displaySourcesList(business)}}
-    </ul>
      
      <!--Headlines Articles-->
-     <h3>Headlines Articles</h3>
+     <h3>Sports Articles</h3>
      <ul>
-        {{ macro.displayHeadlinesList(headlines)}}
+        {{ macro.displaySourcesList(sports)}}
     </ul>
 
     {% endblock %}

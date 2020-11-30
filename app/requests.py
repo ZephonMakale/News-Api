@@ -9,7 +9,6 @@ Headlines = headlines.Headlines
 # Getting the api key
 api_key = app.config['SOURCES_API_KEY']
 
-
 # Getting the news base url
 base_url = app.config['SOURCES_API_BASE_URL']
 base_url2 = app.config['ARTICLES_API_BASE_URL']
@@ -25,7 +24,7 @@ def get_sources(category):
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
-
+        print(get_sources_response)
         sources_results = None
 
         if get_sources_response['sources']:

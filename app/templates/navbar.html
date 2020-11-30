@@ -1,0 +1,44 @@
+<navbar>
+    <div class="navbar nav navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="v-flex">
+          <div class="navbar-body">
+            <div class="navbar-start">
+              <div class="hamburger-menu">
+                <div class="ic_menu">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                </div>
+              </div> 
+              <img class="logo" src="{{url_for('static',filename='images/NEWS-H.png')}}">
+            </div>
+            <div class="search">
+              <input type="text" class="search-textbox" placeholder="Search">
+              <a class="ico-btn search-btn"><i class="material-icons ic_search">&#xE8B6;</i></a>
+              <a class="ico-btn clear-btn"><i class="material-icons ic_clear">&#xE14C;</i></a>
+            </div>
+            <div class="navbar-end">
+              <a style="text-transform: uppercase">Get in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2">
+      <div class="container-fluid">
+        <ul class="navbar-body list-inline">
+          <li class="active"><a href="/" class="active">Home</a></li>
+          <li class="active"><a href="/articles" class="active">Articles</a></li>
+          <li class="active"><a href="/headlines" class="active">Headlines</a></li>
+          <li class="active"><a href="/sports" class="active">Sports</a></li>
+          <!-- <li><a>Potion Lab</a></li> -->
+          <!-- <li><a href="/">Home</a></li> -->
+          <!-- <li><a>Stats</a></li>
+          <li><a>System Log Feed</a></li> -->
+        </ul>
+        <div class="tab-highlighter"></div>
+      </div>
+    </div>
+    <!--2 navbar for pushing 1 above after scrolling (Not Implemented yet.)-->
+  </navbar>

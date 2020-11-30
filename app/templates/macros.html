@@ -1,14 +1,23 @@
 {% macro displaySourcesList(sources_list) %}
 
-    {% for sources in sources_list %}
-        <li>{{ sources.id }}</li>
-        <li>{{ sources.name }}</li>
-        <li>{{ sources.description }}</li>
-        <li>{{ sources.category }}</li>
-        <li><a href="{{ sources.url}}">url</a></li>
-        <li>{{sources.language}}</li>  
-        <li>{{sources.country}}</li>
-    {% endfor %}
+    
+    <div class="container">
+        <div class="row">
+            {% for sources in sources_list %}
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 movie-details">
+                <div class="card" style="width: rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ sources.name }}</h5>
+                      <p class="card-text">{{ sources.description }}</p>
+                      <p class="ratings"> <b> {{ sources.country }}</b> - <i>{{ sources.category}} votes </i> </p>
+                      <li class="btn btn-primary "><a href="{{ sources.url}}" style="color: white">MORE INFO</a></li>
+                    </div>
+                </div>
+            </div> 
+            {% endfor %}  
+        </div>
+    </div>
+    
 {% endmacro %}
 
 {% macro displayArticlesList(articles_list) %}
@@ -19,7 +28,6 @@
         <li>{{ articles.description }}</li>
         <li><a href="{{ articles.url}}">Link</a></li>
         <img src="{{ articles.urlToImage}}" alt="" width="100vw">
-        <!-- <li><a href="">Image Link</a></li> -->
         <li>{{ articles.publishedAt}}</li> 
         <li>{{ articles.content}}</li> 
     {% endfor %}

@@ -23,23 +23,12 @@
     {{ super() }}
     <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
     {% endblock %}
-    
-    <!-- Content block-->
+
+    <!--- Content Block-->
     {% block content %}
-    <!--Popular Articles-->
-    <h3>Technology News</h3>
+    <h3>Articles</h3>
     <ul>
-        {{ macro.displaySourcesList(technology)}}
-    </ul>
-    <h3>Business News</h3>
-    <ul>
-        {{ macro.displaySourcesList(business)}}
-    </ul>
-     
-     <!--Headlines Articles-->
-     <h3>Headlines Articles</h3>
-     <ul>
-        {{ macro.displayHeadlinesList(headlines)}}
+        {{ macro.displayArticlesList(business)}}
     </ul>
 
     {% endblock %}

@@ -9,20 +9,49 @@ def index():
     """
     View root page function that returns the index page and it's data
     """
-    political_source = get_sources('political')
+    technology_source = get_sources('technology')
+    business_source = get_sources('business')
+    sports_source = get_sources('sports')
     headlines_articles_news = get_headlines('headlines')
-    business_articles = get_articles('business')
+    # business_articles = get_articles('business')
     title = 'Home - Welcome to The best News Highlights Website Online'
-    return render_template('index.html', title = title, political = political_source, headlines = headlines_articles_news, business = business_articles)
+    return render_template('index.html', title = title, technology = technology_source, business = business_source, sports= sports_source, headlines = headlines_articles_news)
+
+@app.route('/sports/')
+def sports():
+
+    """
+    View root page function that returns the index page and it's data
+    """
+    
+    sports_source = get_sources('sports')
+    # business_articles = get_articles('business')
+    title = 'Home - Welcome to The best News Highlights Website Online'
+    return render_template('sports.html', title = title, sports= sports_source)
 
 
-# @app.route('/articles/<int:articles_id>')
-# def articles(articles_id):
+@app.route('/articles/')
+def articles():
 
-#     """
-#     View news page function that returns the news details page and it's data
-#     """
+    """
+    View news page function that returns the news details page and it's data
+    """
    
-#     business_articles = get_articles('business')
-#     print(business_articles)
-#     return render_template('articles.html', id = articles_id)
+    business_articles = get_articles('business')
+    # articles = get_articles(id)
+    # print(articles)
+    title = 'Home - Welcome to The best News Highlights Website Online'
+    return render_template('articles.html', title = title, business =business_articles)
+
+@app.route('/headlines/')
+def headlines():
+
+    """
+    View news page function that returns the news details page and it's data
+    """
+   
+    headlines_articles_news = get_headlines('headlines')
+    # articles = get_articles(id)
+    # print(articles)
+    title = 'Home - Welcome to The best News Highlights Website Online'
+    return render_template('headlines.html', title = title, headlines =headlines_articles_news)
