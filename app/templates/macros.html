@@ -8,6 +8,33 @@
         <li><a href="{{ sources.url}}">url</a></li>
         <li>{{sources.language}}</li>  
         <li>{{sources.country}}</li>
-        <img src="{{sources.image}}"/>
     {% endfor %}
 {% endmacro %}
+
+{% macro displayArticlesList(articles_list) %}
+
+    {% for articles in articles_list %}
+        <li>{{ articles.author }}</li>
+        <li>{{ articles.title }}</li>
+        <li>{{ articles.description }}</li>
+        <li><a href="{{ articles.url}}">Link</a></li>
+        <img src="{{ articles.urlToImage}}" alt="" width="100vw">
+        <!-- <li><a href="">Image Link</a></li> -->
+        <li>{{ articles.publishedAt}}</li> 
+        <li>{{ articles.content}}</li> 
+    {% endfor %}
+{% endmacro %}
+
+{% macro displayHeadlinesList(headlines_list) %}
+
+    {% for headlines in headlines_list %}
+        <li>{{ headlines.name }}</li>
+        <li>{{ headlines.author }}</li>
+        <li>{{ headlines.title }}</li>
+        <li>{{ headlines.description }}</li>
+        <li><a href="{{ headlines.url}}">More</a></li>
+        <img src="{{urlToImage}}" alt="">
+        <li>{{ headlines.publishedAt}}</li> 
+    {% endfor %}
+{% endmacro %}
+
