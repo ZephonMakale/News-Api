@@ -11,11 +11,10 @@ def index():
     """
     technology_source = get_sources('technology')
     business_source = get_sources('business')
-    sports_source = get_sources('sports')
     headlines_articles_news = get_headlines('headlines')
     # business_articles = get_articles('business')
     title = 'Home - Welcome to The best News Highlights Website Online'
-    return render_template('index.html', title = title, technology = technology_source, business = business_source, sports= sports_source, headlines = headlines_articles_news)
+    return render_template('index.html', title = title, technology = technology_source, business = business_source, headlines = headlines_articles_news)
 
 @app.route('/sports/')
 def sports():
@@ -25,9 +24,10 @@ def sports():
     """
     
     sports_source = get_sources('sports')
-    # business_articles = get_articles('business')
+    entertainment_source = get_sources('entertainment')
+
     title = 'Home - Welcome to The best News Highlights Website Online'
-    return render_template('sports.html', title = title, sports= sports_source)
+    return render_template('sports.html', title = title, sports = sports_source, entertainment= entertainment_source)
 
 
 @app.route('/articles/')
