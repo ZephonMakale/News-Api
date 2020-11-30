@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row">
             {% for sources in sources_list %}
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 movie-details">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
                 <div class="card" style="width: rem;">
                     <div class="card-body">
                       <h5 class="card-title">{{ sources.name }}</h5>
                       <p class="card-text">{{ sources.description }}</p>
                       <p class="ratings"> <b> {{ sources.country }}</b> - <i>{{ sources.category}} votes </i> </p>
-                      <li class="btn btn-primary "><a href="{{ sources.url}}" style="color: white">MORE INFO</a></li>
+                      <li class="btn btn-primary " style="background-color: #d10024; border-radius: 40px; padding:8px 12px; color: #fff; -webkit-transition: 0.2s; transition: 0.2s;"><a href="{{ sources.url}}" style="color: white">Read Artcle</a></li>
                     </div>
                 </div>
             </div> 
@@ -22,27 +22,67 @@
 
 {% macro displayArticlesList(articles_list) %}
 
-    {% for articles in articles_list %}
-        <li>{{ articles.author }}</li>
-        <li>{{ articles.title }}</li>
-        <li>{{ articles.description }}</li>
-        <li><a href="{{ articles.url}}">Link</a></li>
-        <img src="{{ articles.urlToImage}}" alt="" width="100vw">
-        <li>{{ articles.publishedAt}}</li> 
-        <li>{{ articles.content}}</li> 
-    {% endfor %}
+    
+    <div class="container">
+        <div class="row">
+        {% for articles in articles_list %}
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="card" style="width: 40vw;">
+                <img class="card-img-top img-responsive" src="{{ articles.urlToImage}}" alt="Card image cap" width="500vw">
+                <div class="card-body">
+                  <h4 class="card-title">{{ articles.title }}</h4>
+                  <p class="card-text">{{ articles.description }}</p>
+                  <p class="card-text">{{ articles.content}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>{{ articles.author }}</b></li>
+                  <li class="list-group-item"><i>{{ articles.publishedAt}}</i></li>
+                </ul>
+                <div class="card-body center-block">
+                  <a href="{{ articles.url}}" class="primary-btn cta-btn " style="background-color: #d10024; border-radius: 40px; padding:8px 12px; color: #fff; -webkit-transition: 0.2s; transition: 0.2s;">Read Article</a></a>
+                </div>
+                <div>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+          </div>
+        {% endfor %}  
+        </div>
+    </div> 
+    
 {% endmacro %}
 
-{% macro displayHeadlinesList(headlines_list) %}
+  
 
+{% macro displayHeadlinesList(headlines_list) %}
+<div class="container">
+    <div class="row">
     {% for headlines in headlines_list %}
-        <li>{{ headlines.source.name }}</li>
-        <li>{{ headlines.author }}</li>
-        <li>{{ headlines.title }}</li>
-        <li>{{ headlines.description }}</li>
-        <li><a href="{{ headlines.url}}">More</a></li>
-        <img src="{{ headlines.urlToImage}}" alt="" width="100vw">
-        <li>{{ headlines.publishedAt}}</li> 
-    {% endfor %}
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="card" style="width: vw;">
+            <img class="card-img-top img-responsive" src="{{ headlines.urlToImage}}" alt="Card image cap" width="500vw">
+            <div class="card-body">
+              <h4 class="card-title">{{ headlines.source.name }}</h4>
+              <p class="card-text">{{ headlines.author }}</p>
+              <p class="card-text">{{ headlines.title }}</p>
+              <p class="card-text">{{ headlines.description }}</p>
+
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><i>{{ headlines.publishedAt}}</i></li>
+            </ul>
+            <div class="card-body center-block">
+              <a href="{{ headlines.url}}" class="primary-btn cta-btn " style="background-color: #d10024; border-radius: 40px; padding:8px 12px; color: #fff; -webkit-transition: 0.2s; transition: 0.2s;">Read Article</a></a>
+            </div>
+            <div>
+                <br>
+            </div>
+        </div>
+      </div>
+    {% endfor %}  
+    </div>
+</div> 
+    
 {% endmacro %}
 

@@ -280,3 +280,8 @@ navbar .tab-highlighter{
         margin-right: -30px;
     }
 }
+.primary-btn{
+    background-color: #d10024;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
