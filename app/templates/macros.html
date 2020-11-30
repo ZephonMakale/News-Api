@@ -28,7 +28,7 @@
 {% macro displayHeadlinesList(headlines_list) %}
 
     {% for headlines in headlines_list %}
-        <!-- <li>{{ headlines.name }}</li> -->
+        <li>{{ headlines.source.name }}</li>
         <li>{{ headlines.author }}</li>
         <li>{{ headlines.title }}</li>
         <li>{{ headlines.description }}</li>

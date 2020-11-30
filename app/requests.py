@@ -116,7 +116,7 @@ def get_headlines(category):
 def process_headlines(headlines_list):
     headlines_results = []
     for headlines_item in headlines_list:
-        name = headlines_item.get('name')
+        source = headlines_item.get('source')
         author = headlines_item.get('author')
         title = headlines_item.get('title')
         description = headlines_item.get('description')
@@ -124,7 +124,7 @@ def process_headlines(headlines_list):
         urlToImage = headlines_item.get('urlToImage')
         publishedAt = headlines_item.get('publishedAt')
 
-        headlines_object = Headlines(name,author,title,description,url,urlToImage,publishedAt)
+        headlines_object = Headlines(source,author,title,description,url,urlToImage,publishedAt)
         headlines_results.append(headlines_object)
 
     return headlines_results

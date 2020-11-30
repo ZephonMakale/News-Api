@@ -2,8 +2,8 @@ class Headlines:
     """
     Headlines class to define headlines objects
     """
-    def __init__(self,name,author,title,description,url,urlToImage,publishedAt):
-        self.name = name
+    def __init__(self,source,author,title,description,url,urlToImage,publishedAt):
+        self.source = source
         self.author = author
         self.title = title
         self.description = description
