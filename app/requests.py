@@ -1,26 +1,31 @@
-from app import app
 import urllib.request,json
-from .models import sources, articles, headlines
+from .models import Sources, Headlines, Articles
 
-Sources = sources.Sources
-Articles = articles.Articles
-Headlines = headlines.Headlines
 sources_url = None
-# Getting the api key
-api_key = app.config['SOURCES_API_KEY']
+api_key = None
+base_url = None
+base_url2 = None
+base_url3 = None
+base_url3 = None
 
-# Getting the news base url
-base_url = app.config['SOURCES_API_BASE_URL']
-base_url2 = app.config['ARTICLES_API_BASE_URL']
-base_url3 = app.config['HEADLINES_API_BASE_URL']
-sources_url = app.config['SOURCES_API_BASE_URL']
+def configure_request(app):
+    global api_key,base_url,base_url3,base_url2
+    api_key = app.config['SOURCES_API_KEY']
+    base_url = app.config['SOURCES_API_BASE_URL']
+    base_url2 = app.config['ARTICLES_API_BASE_URL']
+    base_url3 = app.config['HEADLINES_API_BASE_URL']
+    # sources_url = app.config['SOURCES_API_BASE_URL']
 
+# Sources = sources.Sources
+# Articles = articles.Articles
+# Headlines = headlines.Headlines
 
 def get_sources(category):
     '''
     Function that gets the json response to our url request
     '''
     get_sources_url = base_url.format(category,api_key)
+    # get_sources_url = 'https://newsapi.org/v2/sources?category=entertainment&apiKey=aec6f4d84dae4ec8a599e4bacbaed3ca'
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -130,7 +135,7 @@ def process_headlines(headlines_list):
     return headlines_results
 
 def search_sources(category):
-    search_url = sources_url.format(category,api_key)
+    search_url = base_url.format(category,api_key)
 
     with urllib.request.urlopen(search_url) as url:
         search_data = url.read()
@@ -140,5 +145,5 @@ def search_sources(category):
 
         if search_response['sources']:
             all_search_results = search_response['sources']
-            search_outcome = process_search(all_search_results)
+            search_outcome = process_results(all_search_results)
     return search_outcome

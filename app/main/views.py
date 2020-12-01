@@ -1,9 +1,10 @@
 from flask import render_template,request,redirect,url_for
-from app import app
-from .requests import get_sources,get_headlines,get_articles,search_sources
+from . import main
+from ..requests import get_sources,get_headlines,get_articles,search_sources
+from ..models import Headlines, Sources, Articles
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     """
@@ -21,7 +22,7 @@ def index():
     else:
         return render_template('index.html', title = title, technology = technology_source, business = business_source, headlines = headlines_articles_news)
 
-@app.route('/sports/')
+@main.route('/sports/')
 def sports():
 
     """
@@ -35,7 +36,7 @@ def sports():
     return render_template('sports.html', title = title, sports = sports_source, entertainment= entertainment_source)
 
 
-@app.route('/articles/')
+@main.route('/articles/')
 def articles():
 
     """
@@ -48,7 +49,7 @@ def articles():
     title = 'Home - Welcome to The best News Highlights Website Online'
     return render_template('articles.html', title = title, business =business_articles)
 
-@app.route('/headlines/')
+@main.route('/headlines/')
 def headlines():
 
     """
@@ -61,7 +62,7 @@ def headlines():
     title = 'Home - Welcome to The best News Highlights Website Online'
     return render_template('headlines.html', title = title, headlines =headlines_articles_news)
 
-@app.route('/search/<sources_name>')
+@main.route('/search/<sources_name>')
 def sourcesSearch(sources_name):
     '''
     View function to display the search results
