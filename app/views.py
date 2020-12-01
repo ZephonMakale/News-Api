@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template,request,redirect,url_for
 from app import app
-from .requests import get_sources,get_headlines,get_articles 
+from .requests import get_sources,get_headlines,get_articles,search_sources
 
 # Views
 @app.route('/')
@@ -14,7 +14,12 @@ def index():
     headlines_articles_news = get_headlines('headlines')
     # business_articles = get_articles('business')
     title = 'Home - Welcome to The best News Highlights Website Online'
-    return render_template('index.html', title = title, technology = technology_source, business = business_source, headlines = headlines_articles_news)
+    search_sources = request.args.get('sources_')
+
+    if search_sources:
+        return redirect(url_for('search',category=search_sources))
+    else:
+        return render_template('index.html', title = title, technology = technology_source, business = business_source, headlines = headlines_articles_news)
 
 @app.route('/sports/')
 def sports():
@@ -55,3 +60,14 @@ def headlines():
     # print(articles)
     title = 'Home - Welcome to The best News Highlights Website Online'
     return render_template('headlines.html', title = title, headlines =headlines_articles_news)
+
+@app.route('/search/<sources_name>')
+def sourcesSearch(sources_name):
+    '''
+    View function to display the search results
+    '''
+    search_sources_name = sources_name.split(" ")
+    search_name_format = "+".join(search_sources_name)
+    searched_sources = search_sources(search_name_format)
+    # title = f'search results for {sources_name}'
+    return render_template('search.html',sources = searched_sources)

@@ -5,7 +5,7 @@ from .models import sources, articles, headlines
 Sources = sources.Sources
 Articles = articles.Articles
 Headlines = headlines.Headlines
-
+sources_url = None
 # Getting the api key
 api_key = app.config['SOURCES_API_KEY']
 
@@ -13,6 +13,7 @@ api_key = app.config['SOURCES_API_KEY']
 base_url = app.config['SOURCES_API_BASE_URL']
 base_url2 = app.config['ARTICLES_API_BASE_URL']
 base_url3 = app.config['HEADLINES_API_BASE_URL']
+sources_url = app.config['SOURCES_API_BASE_URL']
 
 
 def get_sources(category):
@@ -127,3 +128,17 @@ def process_headlines(headlines_list):
         headlines_results.append(headlines_object)
 
     return headlines_results
+
+def search_sources(category):
+    search_url = sources_url.format(category,api_key)
+
+    with urllib.request.urlopen(search_url) as url:
+        search_data = url.read()
+        search_response = json.loads(search_data)
+
+        search_results = None
+
+        if search_response['sources']:
+            all_search_results = search_response['sources']
+            search_outcome = process_search(all_search_results)
+    return search_outcome
