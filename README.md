@@ -1,4 +1,4 @@
-# Author By
+## Author By
 Zephon Makale
 ## News-Highlight
 This project was generated with [Python 3.8] version and the Flask micro-framework
@@ -13,22 +13,22 @@ I created the project with (python 3.8), Flask-Microframework.
 ## The live link
 Here is the link to my project https://zeph-news-watchlist-highlights.herokuapp.com
 ## Setup/Installation Requirements
- # The project require the following installations
+ ### The project require the following installations
    * Python 3 version, I used Python 3.8, but it can run in any python 3 version.
    * Flask
    * Heroku Cli
    * Basically all the requirements in the requirements.txt file.
 
- # Cloning
+ ### Cloning
    * Open terminal in your computer
    * git clone https://github.com/ZephonMakale/News-Api
    * cd NEWS-HGHLGHT
    * code . this will open your editor with the project automatically.
- # Commands to run the application
+ ### Commands to run the application
    * Open the cloned file in terminal and run the commands below.
     $ chomd +x run.py
     $ ./start.sh
- # Development
+ ### Development
     Want to contibute? Awesome!
     To fix a bug or enhance the project, follow these steps:
    * Fork the repo
@@ -40,7 +40,7 @@ Here is the link to my project https://zeph-news-watchlist-highlights.herokuapp.
    * Then create a Pull request
 
 ## Behaviour Driven Development
- # NEWS-API
+ ### NEWS-API
    1. Displays the top headlines, different categories like Technology.
    2. Enables the user to search for a news category.
 ## Known Bugs
